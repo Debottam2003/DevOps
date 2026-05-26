@@ -1,0 +1,50 @@
+!Note: In the below these are Very Basic commands, there are many more add-ons can be added with these commands.  
+
+Generic
+-------
+kubectl get nodes
+kubectl get pods
+kubectl get deployments
+kubectl get svc/kubectl get services
+
+kubectl describe pods
+kubectl get pods -A
+watch kubectl get pods/kubectl get pods -w
+kubectl get pods -o wide
+
+Specific
+--------
+kubectl get node <name>
+kubectl get pod <name>
+kubectl get deployment <name>
+kubectl get svc <name>/kubectl get service <name>
+
+kubectl delete pod <pod-name>
+kubectl delete deployment <deployment-name>
+kubectl delete service <service-name>
+
+Creation
+--------
+kubectl run <pod-name> --image=<image-name>
+kubectl create deployment <deployment-name> --image=<image-name> --replicas=n
+kubectl scale deployment <deployment-name> --replicas=n
+kubectl expose pod <pod-name> --type=NodePort --port=80 --target-port=80
+kubectl expose deployment <deployment-name> --type=NodePort --port=80 --target-port=80
+
+Can create Pods, Deployments, Services(Reusable Method)
+-------------------------------------------------------
+kubectl apply -f <manifest-filename>.yaml
+kubectl delete -f <manifest-filename>.yaml
+
+--------------------------------------------------------
+Namespace divides a single cluster into multiple virtual clusters
+kubectl create namespace dev
+kubectl run nginx --image=nginx -n dev
+kubectl get pods -n dev
+
+--------------------------------------------------------
+kubectl autoscale deployment <deployment-name> --cpu-percent=70 --min=2 --max=10
+
+kubectl config set-context --current --namespace=default
+
+kubectl port-forward svc/<service-name> 3333:80 -n monitoring --address 0.0.0.0

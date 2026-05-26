@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-deployment
+  namespace: default
+  labels:
+    app: node
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node
+  template:
+    metadata:
+      labels:
+        app: node
+    spec:
+      containers:
+      - name: node
+        image: debottamkar2003/my-node-app
+        ports:
+        - containerPort: 3333
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "256mi"
+          limits:
+            cpu: "500m"
+            memory: "512mi"
