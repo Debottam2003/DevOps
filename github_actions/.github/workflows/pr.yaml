@@ -1,0 +1,13 @@
+name: Pull Request Action
+
+on:
+  pull_request:
+    branches: 
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simple Test
+        run: echo "This is a test for pull request actions."

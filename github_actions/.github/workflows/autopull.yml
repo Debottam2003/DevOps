@@ -1,0 +1,21 @@
+name: Auto Create Pull Request
+
+on:
+  push:
+    branches:
+      - feature-branch
+
+jobs:
+  create-pr:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          title: "Auto PR: Merge feature-branch into main"
+          body: "This PR was created automatically by GitHub Actions."
+          base: main
+          branch: feature-branch

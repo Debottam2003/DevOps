@@ -1,0 +1,14 @@
+name: Push to Main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  push_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1
+        run: echo "This is a push to the main branch"
+        shell: bash
