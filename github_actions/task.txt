@@ -1,0 +1,14 @@
+git checkout mybranch
+# make changes
+
+git add .
+git commit -m "Implemented feature X"
+git push origin mybranch
+# PR created and reviewed and merged into main
+
+git checkout main
+git pull origin main
+
+git checkout mybranch
+git merge main
+# resolve any merge conflicts if necessary
